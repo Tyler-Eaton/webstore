@@ -1,0 +1,16 @@
+{% extends "core/base.html" %}
+
+{% block title %}<title>Your cart</title> {% endblock %}
+
+{% block content %}
+
+<main class="container py-5">
+<div class="alert alert-success" role="alert">
+  Thank you for your purchase. Your items will be delivered to: {{user_address}}
+</div>
+<div class="alert alert-success" role="alert">
+  They will be delivered on: {{deliver_date}}
+</div>
+</main>
+
+{% endblock %}

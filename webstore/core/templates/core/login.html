@@ -1,0 +1,40 @@
+{% extends "core/base.html" %}
+
+{% block title %}<title>Login</title> {% endblock %}
+
+{% block content %}
+    <main class="container py-5">
+      <h1 class="text-center mb-5">Log in to Your Acount</h1>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <form method="POST" action=".">
+            {% csrf_token %}
+
+            <div class="mb-3">
+              <label for="inputEmail" class="form-label">Username</label>
+              {{ form.username }}
+            </div>
+
+            <div class="mb-3">
+              <label for="inputPassword" class="form-label">Password</label>
+              {{ form.password }}
+            </div>
+
+            {% if form.errors or form.non_field_errors %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <strong>Error:</strong> There was an error logging in. Please try again.
+              </button>
+
+                {% for field in form %}
+                    {{ field.errors }}
+                {% endfor %}
+
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+              <button type="submit" class="btn btn-primary">Log in</button>
+          </form>
+        </div>
+      </div>
+    </main>
+{% endblock %}
